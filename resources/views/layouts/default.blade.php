@@ -15,7 +15,6 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
     <title>Laranale</title>
 </head>
 
@@ -38,16 +37,19 @@
             </div>
         </ul>
         @if (Auth::check())
+        @php
+            $user_id = Auth::user()->value('id')
+        @endphp
         <a href="{{ url("posts/create") }}" class="btn btn-secondary mx-2"><i class="fas fa-pen"></i> 投稿する</a>
         <div class="dropdown">
-            <a type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+            <a class="btn btn-secondary dropdown-toggle text-white mx-2" data-toggle="dropdown" aria-haspopup="true"
                 aria-expanded="false">{{ Auth::user()->value('name') }}</a>
 
-            <div class="dropdown-menu" aria-labelledby="dropdown1">
-                <a class="dropdown-item" href="#">マイページ</a>
-                <a href="{{ route('logout') }}" onclick="event.preventDefault();
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown1">
+            <a class="dropdown-item" href="{{ url("users/{$user_id}") }}">マイページ</a>
+                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                     document.getElementById('logout-form').submit();">
-                    Logout
+                    ログアウト
                 </a>
 
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

@@ -1,7 +1,7 @@
 @extends('layouts.default')
 @section('content')
 
-<div class="col-xs-8 col-xs-offset-2">
+<div class="col-8 offset-2">
 
 <h1>投稿ページ</h1>
 
