@@ -34,8 +34,13 @@
         </ul>
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a href="{{ url("posts/create") }}" class="btn btn-primary"><i class="fas fa-pen"></i> 投稿する</a>
-                {{-- {!! link_to("posts/create", '<i class="fas fa-pen"></i> 投稿する', array('class' => 'btn btn-primary')) !!} --}}
+                <a href="{{ url("posts/create") }}" class="btn btn-secondary"><i class="fas fa-pen"></i> 投稿する</a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ url("register") }}" class="btn btn-outline-light"></i> ユーザー登録</a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ url("posts/create") }}" class="btn btn-link" ></i> ログイン</a>
             </li>
         </ul>
     </nav>
