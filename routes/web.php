@@ -21,3 +21,7 @@ Route::resource('posts', 'PostsController');
 Route::resource('users', 'UserController');
 Route::resource('comment', 'CommentsController');
 Route::resource('categories', 'CategoryController');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
