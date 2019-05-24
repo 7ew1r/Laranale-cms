@@ -12,7 +12,6 @@
 			$user_id = DB::table('users')->where('id', $post->user_id)->value('id');
 			$user_name = DB::table('users')->where('id', $post->user_id)->value('name');
 	@endphp
-	{{-- <p>by {{ DB::table('users')->where('id', $post->user_id)->value('name') }}</p> --}}
 	<p>by {{ link_to("users/{$user_id}" ,$user_name) }}
 	<p>コメント：{{ $post->comment_count }}</p>
 	<hr />
