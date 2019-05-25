@@ -9,6 +9,8 @@
 	<hr />
 @endforeach
 
+{{ $categories->links() }}
 </div>
+
 
 @stop

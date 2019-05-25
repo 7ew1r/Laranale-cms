@@ -17,6 +17,8 @@
 	<hr />
 @endforeach
 
+{{ $posts->links() }}
+
 </div>
 
 @stop

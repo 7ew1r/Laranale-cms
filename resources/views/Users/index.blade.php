@@ -9,6 +9,8 @@
 	<hr />
 @endforeach
 
+{{ $users->links() }}
+
 </div>
 
 @stop
