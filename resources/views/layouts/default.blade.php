@@ -20,7 +20,7 @@
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a href="{{ url('/') }}" class="navbar-brand">Lara</a>
+        <a href="{{ url('/') }}" class="navbar-brand">Laranale</a>
         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="ナビゲーションの切替">
             <span class="navbar-toggler-icon"></span>
