@@ -53,8 +53,12 @@ class CommentsController extends Controller
             $comment = new Comment;
             $comment->commenter = $request->get('commenter');
             $comment->comment = $request->get('comment');
-            $comment->post_id = $request->get('post_id');
+            $post_id_ = $request->get('post_id');
+            $comment->post_id = $post_id_;
             $comment->save();
+            $post = Post::find($post_id_);
+            $post->increment('comment_count');
+
             return back()
                 ->with('message', '投稿が完了しました。');
         } else {
