@@ -40,12 +40,13 @@
         </ul>
         @if (Auth::check())
         @php
-            $user_id = Auth::user()->value('id')
+            $user = Auth::user();
+            $user_id = Auth::id();
         @endphp
         <a href="{{ url("posts/create") }}" class="btn btn-secondary mx-2"><i class="fas fa-pen"></i> 投稿する</a>
         <div class="dropdown">
             <a class="btn btn-secondary dropdown-toggle text-white mx-2" data-toggle="dropdown" aria-haspopup="true"
-                aria-expanded="false">{{ Auth::user()->value('name') }}</a>
+                aria-expanded="false">{{ $user->name }}</a>
 
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown1">
             <a class="dropdown-item" href="{{ url("users/{$user_id}") }}">マイページ</a>
@@ -62,8 +63,8 @@
             </div>
         </div>
         @else
-        <a href="{{ url("register") }}" class="btn btn-outline-light mx-2"></i> ユーザー登録</a>
-        <a href="{{ url("login") }}" class="text-white mx-2"></i> ログイン</a>
+        <a href="{{ url("register") }}" class="btn btn-outline-light mx-2"> ユーザー登録</a>
+        <a href="{{ url("login") }}" class="text-white mx-2"> ログイン</a>
         @endif
     </nav>
 
