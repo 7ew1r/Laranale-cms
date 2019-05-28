@@ -5,9 +5,12 @@
 
 <article class="container">
 	<div class="my-5">
-	<h2>タイトル：{{ $post->title }}
-		<small>投稿日：{{ date("Y年 m月 d日",strtotime($post->created_at)) }}</small>
-	</h2>
+	<div>
+		<span>by {{ link_to("users/{$post->user->id}", $post->user->name) }}</span>
+		<span class="mx-4"><i class="far fa-clock"></i> {{ date("Y年 m月 d日",strtotime($post->created_at)) }}</span>
+		<span class="float-right">{{ link_to("posts/{$post->id}/edit", "編集する") }}</span>
+	</div>
+	<h2>{{ $post->title }}</h2>
 	<p>カテゴリー：{{ $post->category->name }}</p>
 	<p>{{ $post->content }}</p>
 
@@ -19,6 +22,7 @@
 		<p>{{ $single_comment->comment }}</p><br />
 	@endforeach
 
+	<hr />
 	<h3>コメントを投稿する</h3>
 	{{-- 投稿完了時にフラッシュメッセージを表示 --}}
 	@if(Session::has('message'))
