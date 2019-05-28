@@ -58,9 +58,28 @@
 	<div class="form-group">
 		<button type="submit" class="btn btn-primary">投稿する</button>
 	</div>
+</form>
 
-{{ Form::close() }}
+<form action="{{ route('posts.destroy',['id' => $post->id]) }}" method="POST">
+{{ csrf_field() }}
+{{ method_field('DELETE') }}
+  <button type="submit" class="btn btn-danger btn-delete">
+    <i class="fas fa-trash-alt"></i> 記事を削除
+  </button>
+</form>
 
 </div>
+@section('script')
+  <script>
+  $(function(){
+  $(".btn-delete").click(function(){
+  if(confirm("本当に削除しますか？")){
+  }else{
+  return false;
+  }
+  });
+  });
+  </script>
+@endsection
 
 @stop
