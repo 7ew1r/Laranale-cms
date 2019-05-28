@@ -94,9 +94,14 @@ class PostsController extends Controller
      */
     public function edit($id)
     {
+        $login_user_id = Auth::id();
         $post = Post::find($id);
-        $categories = Category::All();
-        return view('edit')->with(['post' => $post, 'categories' => $categories]);
+        if ($post->user_id == $login_user_id) {
+            $categories = Category::All();
+            return view('edit')->with(['post' => $post, 'categories' => $categories]);
+        } else {
+            return redirect('posts');
+        }
     }
 
     /**

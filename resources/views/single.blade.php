@@ -6,7 +6,9 @@
 	<div>
 		<span>by {{ link_to("users/{$post->user->id}", $post->user->name) }}</span>
 		<span class="mx-4"><i class="far fa-clock"></i> {{ date("Y年 m月 d日",strtotime($post->created_at)) }}</span>
-		<span class="float-right">{{ link_to("posts/{$post->id}/edit","編集する") }}</span>
+		@if (Auth::id() == $post->user_id)
+			<span class="float-right">{{ link_to("posts/{$post->id}/edit","編集する") }}</span>
+		@endif
 	</div>
 	<h2>{{ $post->title }}</h2>
 	<p>カテゴリー：{{ $post->category->name }}</p>
