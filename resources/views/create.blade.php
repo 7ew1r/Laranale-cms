@@ -26,6 +26,10 @@
 		</div>
 	</div>
 
+	@php
+			$user_id = Auth::id();
+	@endphp
+	{{ Form::hidden("user_id", $user_id) }}
 	<div class="form-group">
 		<label for="cat_id" class="">カテゴリー</label>
 		<div class="">
