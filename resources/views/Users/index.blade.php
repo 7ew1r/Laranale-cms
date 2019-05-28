@@ -1,7 +1,7 @@
 @extends('layouts.default')
 @section('content')
 
-<div class="col-8 offset-2 bg-light">
+<div class="col-8 offset-2 bg-light my-5">
 
 @foreach($users as $user)
 
