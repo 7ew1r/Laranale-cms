@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Post;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
+use App\Category;
 
 class PostsController extends Controller
 {
@@ -28,7 +29,8 @@ class PostsController extends Controller
     public function create()
     {
         if (Auth::check()) {
-            return view('create');
+            $categories = Category::All();
+            return view('create')->with('categories', $categories);
         } else {
             return redirect('login')->with('message', 'ログインしてください。');;
         }

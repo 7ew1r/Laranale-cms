@@ -33,10 +33,11 @@
 	<div class="form-group">
 		<label for="cat_id" class="">カテゴリー</label>
 		<div class="">
-			<select name="cat_id" type="text" class="">
+			<select name="cat_id" id="">
 				<option></option>
-				<option value="1" name="1">電化製品</option>
-				<option value="2" name="2">食品</option>
+				@foreach ($categories as $category)
+					<option value="{{ $category->id }}" name="{{ $category->id }}" >{{ $category->name }}</option>
+				@endforeach
 			</select>
 		</div>
 	</div>
