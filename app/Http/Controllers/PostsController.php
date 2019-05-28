@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Post;
 use Illuminate\Support\Facades\Validator;
-
+use Illuminate\Support\Facades\Auth;
 
 class PostsController extends Controller
 {
@@ -27,7 +27,11 @@ class PostsController extends Controller
      */
     public function create()
     {
-        return view('create');
+        if (Auth::check()) {
+            return view('create');
+        } else {
+            return redirect('login')->with('message', 'ログインしてください。');;
+        }
     }
 
     /**
