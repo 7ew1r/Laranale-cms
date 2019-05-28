@@ -31,6 +31,6 @@ class User extends Authenticatable
     public function Posts()
     {
         // ユーザーは多くの投稿を持つ
-        return $this->hasMany('App\Post', 'post_id');
+        return $this->hasMany('App\Post', 'user_id');
     }
 }
