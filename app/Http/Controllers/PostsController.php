@@ -94,7 +94,9 @@ class PostsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = Post::find($id);
+        $categories = Category::All();
+        return view('edit')->with(['post' => $post, 'categories' => $categories]);
     }
 
     /**
@@ -106,7 +108,34 @@ class PostsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $rules = [
+            'title' => 'required',
+            'content' => 'required',
+            'cat_id' => 'required',
+        ];
+
+        $messages = array(
+            'title.required' => 'タイトルを正しく入力してください。',
+            'content.required' => '本文を正しく入力してください。',
+            'cat_id.required' => 'カテゴリーを選択してください。',
+        );
+
+        $validator = Validator::make($request->all(), $rules, $messages);
+
+        if ($validator->passes()) {
+            $post = Post::find($id);
+            $post->user_id = $request->get('user_id');
+            $post->title = $request->get('title');
+            $post->content = $request->get('content');
+            $post->cat_id = $request->get('cat_id');
+            $post->save();
+            return redirect("posts/{$id}")
+                ->with('message', '投稿が完了しました。');
+        } else {
+            return redirect('posts/create')
+                ->withErrors($validator)
+                ->withInput();
+        }
     }
 
     /**
