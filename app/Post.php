@@ -18,7 +18,7 @@ class Post extends Model
         return $this->belongsTo('App\Category', 'cat_id');
     }
 
-    public function Users()
+    public function User()
     {
         return $this->belongsTo('App\User', 'user_id');
     }
