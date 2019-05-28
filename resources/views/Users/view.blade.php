@@ -10,16 +10,21 @@
         <p>名前: {{ $user->name }}</p>
         <p>メールアドレス: {{ $user->email }}</p>
         <p>作成日時: {{ $user->created_at }}</p>
-      {{-- <a href="" class="card-link">編集</a> --}}
     </div>
   </div>
 
-  <h3>投稿記事一覧</h3>
-  @foreach ($user->posts as $post)
-    {{-- <h4>{{ $post->title }}</h4> --}}
-    <h4>{{ link_to("posts/{$post->id}", $post->title) }}</h4>
-  @endforeach
-
+  <div class="card my-4">
+    <h2 class="card-header">投稿記事一覧</h2>
+    <ul class="list-group list-group-flush">
+      @foreach ($user->posts as $post)
+      <li class="list-group-item">
+        <span>{{ link_to("posts/{$post->id}", $post->title) }}</span>
+        <span class="mx-2"><i class="fas fa-comment-dots"></i> {{ $post->comment_count }}</span>
+		    <span><i class="far fa-clock"></i> {{ date("Y年 m月 d日",strtotime($post->created_at)) }}</span>
+      </li>
+      @endforeach
+    </ul>
+  </div>
 </div>
 
 @stop
