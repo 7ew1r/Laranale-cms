@@ -54,6 +54,7 @@ class PostsController extends Controller
 
         if ($validator->passes()) {
             $post = new Post;
+            $post->user_id = $request->get('user_id');
             $post->title = $request->get('title');
             $post->content = $request->get('content');
             $post->cat_id = $request->get('cat_id');
