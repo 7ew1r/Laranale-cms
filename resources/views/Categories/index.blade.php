@@ -1,7 +1,7 @@
 @extends('layouts.default')
 @section('content')
 
-<div class="col-8 offset-2">
+<div class="col-8 offset-2 bg-light">
 
 @foreach($categories as $category)
 
