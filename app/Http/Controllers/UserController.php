@@ -47,7 +47,8 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        return view('Users/view');
+        $user = User::find($id);
+        return view('Users/view')->with('user', $user);
     }
 
     /**
