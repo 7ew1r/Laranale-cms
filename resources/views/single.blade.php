@@ -41,14 +41,14 @@
 		<div class="form-group">
 			<label for="commenter" class="">名前</label>
 			<div class="">
-				{{ Form::text('commenter', null, array('class' => '')) }}
+				{{ Form::text('commenter', null, array('class' => 'form-control')) }}
 			</div>
 	</div>
 
 		<div class="form-group">
 			<label for="comment" class="">コメント</label>
 			<div class="">
-				{{ Form::textarea('comment', null, array('class' => '')) }}
+				{{ Form::textarea('comment', null, array('class' => 'form-control')) }}
 			</div>
 		</div>
 

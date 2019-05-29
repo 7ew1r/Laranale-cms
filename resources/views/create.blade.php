@@ -1,28 +1,29 @@
 @extends('layouts.default')
 @section('content')
 
-<div class="col-8 offset-2">
+<div class="col-8 offset-2 my-5">
 
-<h1>投稿ページ</h1>
+	{{-- 投稿完了時にフラッシュメッセージを表示 --}}
+	@if(Session::has('message'))
+		<div class="bg-info">
+			<p>{{ Session::get('message') }}</p>
+		</div>
+	@endif
 
-{{-- 投稿完了時にフラッシュメッセージを表示 --}}
-@if(Session::has('message'))
-	<div class="bg-info">
-		<p>{{ Session::get('message') }}</p>
-	</div>
-@endif
+	{{-- エラーメッセージの表示 --}}
+	@foreach($errors->all() as $message)
+		<p class="bg-danger">{{ $message }}</p>
+	@endforeach
 
-{{-- エラーメッセージの表示 --}}
-@foreach($errors->all() as $message)
-	<p class="bg-danger">{{ $message }}</p>
-@endforeach
-
+<div class="card">
+<h2 class="card-header">投稿ページ</h2>
+<div class="card-body">
 {{ Form::open(['route' => 'posts.store'], array('class' => 'form')) }}
 
 	<div class="form-group">
 		<label for="title" class="">タイトル</label>
 		<div class="">
-			{{ Form::text('title', null, array('class' => '')) }}
+			{{ Form::text('title', null, array('class' => 'form-control')) }}
 		</div>
 	</div>
 
@@ -33,7 +34,7 @@
 	<div class="form-group">
 		<label for="cat_id" class="">カテゴリー</label>
 		<div class="">
-			<select name="cat_id" id="">
+			<select class="form-control" name="cat_id" id="">
 				<option></option>
 				@foreach ($categories as $category)
 					<option value="{{ $category->id }}" name="{{ $category->id }}" >{{ $category->name }}</option>
@@ -45,7 +46,7 @@
 	<div class="form-group">
 		<label for="content" class="">本文</label>
 		<div class="">
-			{{ Form::textarea('content', null, array('class' => '')) }}
+			{{ Form::textarea('content', null, array('class' => 'form-control')) }}
 		</div>
 	</div>
 
@@ -54,7 +55,7 @@
 	</div>
 
 {{ Form::close() }}
-
+</div>
 </div>
 
 @stop
