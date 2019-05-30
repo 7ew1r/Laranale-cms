@@ -12,7 +12,7 @@ use Illuminate\Foundation\Testing\DatabaseMigrations;
 
 class PostsControllerTest extends TestCase
 {
-    // use DatabaseMigrations;
+    use DatabaseMigrations;
 
     /**
      * ゲストユーザはルートにアクセスするとpostsにリダイレクトされる
@@ -97,6 +97,8 @@ class PostsControllerTest extends TestCase
      */
     public function testCanAccessAnyPostPages()
     {
+        Artisan::call('db:seed');
+
         $posts = Post::All();
         foreach ($posts as $post) {
             $response = $this->get("/posts/{$post->id}");
@@ -111,6 +113,8 @@ class PostsControllerTest extends TestCase
      */
     public function testCanAccessAnyUserPages()
     {
+        Artisan::call('db:seed');
+
         $users = User::All();
         foreach ($users as $user) {
             $response = $this->get("/users/{$user->id}");
