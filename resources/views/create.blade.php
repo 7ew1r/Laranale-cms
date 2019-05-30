@@ -37,22 +37,24 @@
 			<select class="form-control" name="cat_id" id="">
 				<option></option>
 				@foreach ($categories as $category)
-					<option value="{{ $category->id }}" name="{{ $category->id }}" >{{ $category->name }}</option>
+				<option value="{{ $category->id }}" name="{{ $category->id }}" >{{ $category->name }}</option>
 				@endforeach
 			</select>
 		</div>
 	</div>
-
+	
 	<div class="form-group">
 		<label for="content" class="">本文</label>
 		<div class="">
 			{{ Form::textarea('content', null, array('class' => 'form-control')) }}
 		</div>
 	</div>
-
+	
 	<div class="form-group">
 		<button type="submit" class="btn btn-primary">投稿する</button>
 	</div>
+
+	{{ Form::hidden("comment_count", 0) }}
 
 {{ Form::close() }}
 </div>

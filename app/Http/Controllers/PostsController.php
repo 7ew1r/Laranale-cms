@@ -64,6 +64,7 @@ class PostsController extends Controller
             $post->title = $request->get('title');
             $post->content = $request->get('content');
             $post->cat_id = $request->get('cat_id');
+            $post->comment_count = $request->get('comment_count');
             $post->save();
             return redirect('posts')
                 ->with('message', '投稿が完了しました。');
