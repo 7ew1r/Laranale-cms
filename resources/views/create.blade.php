@@ -42,14 +42,14 @@
 			</select>
 		</div>
 	</div>
-	
+
 	<div class="form-group">
 		<label for="content" class="">本文</label>
 		<div class="">
 			{{ Form::textarea('content', null, array('class' => 'form-control')) }}
 		</div>
 	</div>
-	
+
 	<div class="form-group">
 		<button type="submit" class="btn btn-primary">投稿する</button>
 	</div>
