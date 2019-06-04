@@ -5,14 +5,14 @@
 
 	{{-- 投稿完了時にフラッシュメッセージを表示 --}}
 	@if(Session::has('message'))
-		<div class="bg-info">
-			<p>{{ Session::get('message') }}</p>
+		<div class="alert alert-success">
+			<p><i class="fas fa-info-circle"></i> {{ Session::get('message') }}</p>
 		</div>
 	@endif
 
 	{{-- エラーメッセージの表示 --}}
 	@foreach($errors->all() as $message)
-		<p class="bg-danger">{{ $message }}</p>
+		<p class="alert alert-danger"><i class="fas fa-exclamation-triangle"></i> {{ $message }}</p>
 	@endforeach
 
 <div class="card">
@@ -42,14 +42,14 @@
 			</select>
 		</div>
 	</div>
-	
+
 	<div class="form-group">
 		<label for="content" class="">本文</label>
 		<div class="">
 			{{ Form::textarea('content', null, array('class' => 'form-control')) }}
 		</div>
 	</div>
-	
+
 	<div class="form-group">
 		<button type="submit" class="btn btn-primary">投稿する</button>
 	</div>

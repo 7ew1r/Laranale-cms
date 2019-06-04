@@ -12,7 +12,7 @@
 	</div>
 	<h2>{{ $post->title }}</h2>
 	<p>カテゴリー：{{ $post->category->name }}</p>
-	<p>{{ $post->content }}</p>
+	@markdown($post->content)
 
 	<hr />
 

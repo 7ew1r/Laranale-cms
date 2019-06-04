@@ -1,0 +1,51 @@
+# PHP CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-php/ for more details
+#
+version: 2
+jobs:
+  build:
+    docker:
+      # specify the version you desire here
+      - image: circleci/php:7.3-stretch-node-browsers
+      - image: circleci/mysql:5.7
+
+      # Specify service dependencies here if necessary
+      # CircleCI maintains a library of pre-built images
+      # documented at https://circleci.com/docs/2.0/circleci-images/
+      # - image: circleci/mysql:9.4
+
+    environment:
+      - APP_DEBUG: true
+      - APP_ENV: testing
+      - APP_KEY: base64:NOTi+UToCbr67CNunIaSpnYALzI/vSr7hUkInuoNbBM=
+      - DB_USERNAME: root
+      - MYSQL_ALLOW_EMPTY_PASSWORD: true
+      - DB_DATABASE: circle_test
+
+    steps:
+      - checkout
+
+      - run: sudo docker-php-ext-install zip pdo_mysql
+
+      # Download and cache dependencies
+
+      # composer cache
+      - restore_cache:
+          keys:
+          # "composer.lock" can be used if it is committed to the repo
+          - v1-dependencies-{{ checksum "composer.json" }}
+          # fallback to using the latest cache if no exact match is found
+          - v1-dependencies-
+
+      - run: composer install -n --prefer-dist
+
+      - save_cache:
+          key: composer-v1-{{ checksum "composer.lock" }}
+          paths:
+            - vendor
+
+      - run: sed -i -e '/<env name="DB_DATABASE" value="test_laranale" \/>/d' ./phpunit.xml
+
+      # Run the test
+      - run: php ./vendor/bin/phpunit
