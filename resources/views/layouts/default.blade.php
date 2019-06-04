@@ -80,8 +80,12 @@
 
   @yield('content')
 
+  <div class="link-to-github">
+    <a href="https://github.com/7ew1r/Laranale-cms" target="_blank" rel="noopener noreferrer"><i class="fab fa-github fa-4x"></i></a>
+  </div>
+
   <footer class="footer">
-    <p>&copy; 2019 TEWi_R</p>
+    <p><small>&copy; 2019 TEWi_R</small></p>
   </footer>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
