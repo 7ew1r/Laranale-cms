@@ -32,6 +32,9 @@
     <div class="collapse navbar-collapse" id="navbarNav">
     <!-- navbar-left -->
       <ul class="navbar-nav mr-auto">
+        <li class="nav-item @if( url()->current() == url("posts") ) active @endif ">
+                    <a class=" nav-link" href="{{ url("posts") }}"><i class="fas fa-newspaper"></i> 投稿一覧</a>
+        </li>
         <li class="nav-item @if( url()->current() == url("users") ) active @endif ">
                     <a class=" nav-link" href="{{ url("users") }}"><i class="fas fa-users"></i> ユーザー一覧</a>
         </li>
