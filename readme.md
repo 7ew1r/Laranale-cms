@@ -5,6 +5,7 @@
 ## 概要
 
 Laravelで構築したCMSアプリケーションです。
+http://laranale.herokuapp.com/
 
 ## 機能一覧
 
@@ -97,3 +98,7 @@ php artisan migrate --seed
 ```
 
 http://localhost にアクセスする
+
+## ライセンス
+
+[MIT](https://raw.githubusercontent.com/7ew1r/Laranale-cms/master/LICENSE)
