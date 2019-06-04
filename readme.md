@@ -75,7 +75,7 @@ cd laradock
 docker-compose up -d nginx mysql
 ```
 
-### データベースの設定
+データベースの作成
 
 ```
 docker exec -it laradock_mysql_1 bash
@@ -86,7 +86,7 @@ mysql> exit
 exit
 ```
 
-### Laranaleのインストール
+Laranaleのインストール
 
 ```
 docker-compose exec workspace bash
@@ -95,3 +95,5 @@ composer install
 php artisan key:generate
 php artisan migrate --seed
 ```
+
+http://localhost にアクセスする
