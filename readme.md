@@ -2,8 +2,6 @@
 
 [![CircleCI](https://circleci.com/gh/7ew1r/Laranale-cms/tree/master.svg?style=svg)](https://circleci.com/gh/7ew1r/Laranale-cms/tree/master)
 
-画像
-
 ## 概要
 
 Laravelで構築したCMSアプリケーションです。
@@ -17,38 +15,35 @@ Laravelで構築したCMSアプリケーションです。
 - コメント投稿機能
 - ページネーション機能
 - ユーザー登録/ログイン機能
+- 退会（ユーザー削除）機能
 - 記事投稿機能（Markdownで記入できます）*
 - 記事編集/削除機能*
 - 単体テスト (PHPUnit)
 - CircleCIによる自動テスト
 
+*要ログイン
 
 ## 使用技術
 
 - フレームワーク
-  - Laravel
-
+  - Laravel 5.5
+- データベース
+  - MySQL 5.7 [開発環境]
+  - PostgreSQL (Heroku Postgres)
 - インフラ
   - Heroku
+- CI
+  - CircleCI
 
-- データベース
-  - PostgreSQL (Heroku Postgres)
+## 要件
 
-- CI (CircleCI)
-
-登録ユーザー
-
-- 記事の投稿
-- 投稿記事の編集・削除
-
-
-## 必要
-
+- macOS / Linux
 - Docker
+- Docker Compose
 
-## インストール方法
+## 使い方
 
-作業用ディレクトリを作成し、移動
+作業用ディレクトリを作成・移動。
 
 ```
 mkdir workdir && cd workdir
@@ -60,6 +55,7 @@ mkdir workdir && cd workdir
 git clone https://github.com/7ew1r/Laranale-cms.git
 ```
 
+Laravelの開発環境として、Laradockを使用しています。  
 Laradockをクローン
 
 ```
@@ -72,13 +68,14 @@ git clone https://github.com/laradock/laradock.git
 sh Laranale-cms/script/init.sh
 ```
 
-```
-cd laradock
-```
+laradockによる開発環境の構築・起動
 
 ```
+cd laradock
 docker-compose up -d nginx mysql
 ```
+
+### データベースの設定
 
 ```
 docker exec -it laradock_mysql_1 bash
@@ -88,6 +85,8 @@ mysql> create database laranale;
 mysql> exit
 exit
 ```
+
+### Laranaleのインストール
 
 ```
 docker-compose exec workspace bash
