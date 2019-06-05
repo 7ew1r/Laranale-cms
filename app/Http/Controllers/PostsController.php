@@ -32,7 +32,7 @@ class PostsController extends Controller
             $categories = Category::All();
             return view('create')->with('categories', $categories);
         } else {
-            return redirect('login')->with('message', 'ログインしてください。');;
+            return redirect('login')->with('message', 'ログインしてください。');
         }
     }
 

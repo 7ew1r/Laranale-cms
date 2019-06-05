@@ -1,10 +1,21 @@
-{{-- @extends('layouts.app') --}}
 @extends('layouts.default')
 
 @section('content')
 <div class="container">
   <div class="row">
     <div class="col-md-8 offset-2 my-5">
+
+    {{-- フラッシュメッセージを表示 --}}
+	  @if(Session::has('message'))
+      <div class="alert alert-success">
+        <p><i class="fas fa-info-circle"></i> {{ Session::get('message') }}</p>
+      </div>
+	  @endif
+    {{-- エラーメッセージの表示 --}}
+    @foreach($errors->all() as $message)
+      <p class="alert alert-danger"><i class="fas fa-exclamation-triangle"></i> {{ $message }}</p>
+    @endforeach
+
       <div class="card">
         <div class="card-header">ログイン</div>
 
