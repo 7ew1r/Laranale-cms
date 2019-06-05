@@ -32,6 +32,9 @@
     <div class="collapse navbar-collapse" id="navbarNav">
     <!-- navbar-left -->
       <ul class="navbar-nav mr-auto">
+        <li class="nav-item @if( url()->current() == url("posts") ) active @endif ">
+                    <a class=" nav-link" href="{{ url("posts") }}"><i class="fas fa-newspaper"></i> 投稿一覧</a>
+        </li>
         <li class="nav-item @if( url()->current() == url("users") ) active @endif ">
                     <a class=" nav-link" href="{{ url("users") }}"><i class="fas fa-users"></i> ユーザー一覧</a>
         </li>
@@ -48,7 +51,7 @@
         $user = Auth::user();
         $user_id = Auth::id();
         @endphp
-      <a href="{{ url("posts/create") }}" class="btn btn-secondary mx-2"><i class="fas fa-pen"></i> 投稿する</a>
+      <a href="{{ url("posts/create") }}" class="btn btn-secondary w-50 mx-2"><i class="fas fa-pen"></i> 投稿する</a>
       <div class="dropdown">
         <a class="btn btn-secondary dropdown-toggle text-white mx-2" data-toggle="dropdown" aria-haspopup="true"
         aria-expanded="false">{{ $user->name }}</a>
@@ -80,6 +83,13 @@
 
   @yield('content')
 
+  <div class="link-to-github">
+    <a href="https://github.com/7ew1r/Laranale-cms" target="_blank" rel="noopener noreferrer"><i class="fab fa-github fa-4x"></i></a>
+  </div>
+
+  <footer class="footer">
+    <p><small>&copy; 2019 TEWi_R</small></p>
+  </footer>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
   </script>

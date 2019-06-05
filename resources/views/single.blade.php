@@ -1,8 +1,7 @@
 @extends('layouts.default')
 @section('content')
 
-<div class="col-8 offset-2 bg-light">
-	<div class="py-5">
+<div class="col-8 offset-2 bg-light my-5 py-2">
 	<div>
 		<span>by {{ link_to("users/{$post->user->id}", $post->user->name) }}</span>
 		<span class="mx-4"><i class="far fa-clock"></i> {{ date("Y年 m月 d日",strtotime($post->created_at)) }}</span>
@@ -12,18 +11,19 @@
 	</div>
 	<h2>{{ $post->title }}</h2>
 	<p>カテゴリー：{{ $post->category->name }}</p>
-	@markdown($post->content)
-
+	<div class="post-content py-2">
+		@markdown($post->content)
+	</div>
 	<hr />
 
-	<h3>コメント一覧</h3>
+	<h3 class="h5">コメント一覧</h3>
 	@foreach($post->comments as $single_comment)
 		<h4>{{ $single_comment->commenter }}</h4>
 		<p>{{ $single_comment->comment }}</p><br />
 	@endforeach
 
 	<hr />
-	<h3>コメントを投稿する</h3>
+	<h3 class="h5">コメントを投稿する</h3>
 	{{-- 投稿完了時にフラッシュメッセージを表示 --}}
 	@if(Session::has('message'))
 		<div class="bg-info">
@@ -63,6 +63,5 @@
 
 
 	</div>
-</div>
 </article>
 @stop

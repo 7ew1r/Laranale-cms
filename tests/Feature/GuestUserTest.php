@@ -59,6 +59,17 @@ class PostsControllerTest extends TestCase
     }
 
     /**
+     * ゲストユーザは記事投稿ページにアクセス出来ず、ログインページにリダイレクトされる
+     *
+     * @return void
+     */
+    public function testCannotAccessCreateCategory()
+    {
+        $response = $this->get('/categories/create');
+        $response->assertRedirect('login');
+    }
+
+    /**
      * ゲストユーザはログインページを閲覧できる
      *
      * @return void

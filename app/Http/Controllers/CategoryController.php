@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Category;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class CategoryController extends Controller
 {
@@ -25,7 +27,11 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        if (Auth::check()) {
+            return view('categories/create');
+        } else {
+            return redirect('login')->with('message', 'ログインしてください。');
+        }
     }
 
     /**
@@ -36,7 +42,27 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $rules = [
+            'name' => 'required',
+        ];
+
+        $messages = array(
+            'name.required' => 'カテゴリー名を入力してください。',
+        );
+
+        $validator = Validator::make($request->all(), $rules, $messages);
+
+        if ($validator->passes()) {
+            $categories = new Category;
+            $categories->name = $request->get('name');
+            $categories->save();
+            return redirect('categories')
+                ->with('message', '投稿が完了しました。');
+        } else {
+            return redirect('categories/create')
+                ->withErrors($validator)
+                ->withInput();
+        }
     }
 
     /**

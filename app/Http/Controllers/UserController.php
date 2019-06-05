@@ -83,6 +83,12 @@ class UserController extends Controller
     public function destroy($id)
     {
         $user = User::findOrFail($id);
+
+        // Also delete the posts of the user
+        foreach ($user->posts as $post) {
+            $post->delete();
+        }
+
         $user->delete();
         return redirect('posts');
     }

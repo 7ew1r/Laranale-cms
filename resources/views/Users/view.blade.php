@@ -38,7 +38,7 @@
   <script>
   $(function(){
   $(".btn-delete").click(function(){
-  if(confirm("本当に削除しますか？")){
+  if(confirm("本当に削除してよろしいですか？")){
   }else{
   return false;
   }
