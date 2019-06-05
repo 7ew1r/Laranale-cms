@@ -51,7 +51,7 @@
         $user = Auth::user();
         $user_id = Auth::id();
         @endphp
-      <a href="{{ url("posts/create") }}" class="btn btn-secondary mx-2"><i class="fas fa-pen"></i> 投稿する</a>
+      <a href="{{ url("posts/create") }}" class="btn btn-secondary w-50 mx-2"><i class="fas fa-pen"></i> 投稿する</a>
       <div class="dropdown">
         <a class="btn btn-secondary dropdown-toggle text-white mx-2" data-toggle="dropdown" aria-haspopup="true"
         aria-expanded="false">{{ $user->name }}</a>
