@@ -11,7 +11,7 @@
 	</div>
 	<h2>{{ $post->title }}</h2>
 	<p>カテゴリー：{{ $post->category->name }}</p>
-	<div class="py-2">
+	<div class="post-content py-2">
 		@markdown($post->content)
 	</div>
 	<hr />

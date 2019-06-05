@@ -2,6 +2,11 @@ body {
     background-color: #eeeeee;
 }
 
+.post-content pre {
+    color: white;
+    background-color: black;
+}
+
 .link-to-github {
     position: fixed;
     bottom: 45px;
