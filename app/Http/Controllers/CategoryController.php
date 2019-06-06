@@ -28,7 +28,7 @@ class CategoryController extends Controller
     public function create()
     {
         if (Auth::check()) {
-            return view('categories/create');
+            return view('Categories/create');
         } else {
             return redirect('login')->with('message', 'ログインしてください。');
         }
