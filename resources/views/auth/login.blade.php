@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
   <div class="row">
-    <div class="col-md-8 offset-2 my-5">
+    <div class="col-lg-6 my-5">
 
     {{-- フラッシュメッセージを表示 --}}
 	  @if(Session::has('message'))
@@ -77,6 +77,19 @@
         </div>
       </div>
     </div>
+
+    <div class="col-lg-6 my-5">
+      <div class="card bg-info text-white">
+        <div class="card-body">
+          <p>テストユーザーとしてログインできます</p>
+          <ul>
+            <li>メールアドレス：<kbd>laranare@example.com</kbd></li>
+            <li>パスワード：<kbd>LaranalePass</kbd></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
 @endsection

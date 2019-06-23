@@ -6,10 +6,10 @@
 	<div class="card">
 		<div class="card-body">
 			@foreach($categories as $category)
-				<h2>{{ link_to("categories/{$category->id}", $category->name) }}</h2>
+				<h2>{{ link_to("categories/{$category->id}", $category->name, ['class' => 'text-dark']) }}</h2>
 				<hr />
 			@endforeach
-			<h3>{{ link_to("categories/create", "＋ カテゴリーを追加する") }}</h2>
+			<h3>{{ link_to("categories/create", "＋ カテゴリーを追加する", ['class' => 'text-dark']) }}</h2>
 		</div>
 	</div>
 {{ $categories->links() }}

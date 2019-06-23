@@ -15,22 +15,22 @@
 		<p class="alert alert-danger"><i class="fas fa-exclamation-triangle"></i> {{ $message }}</p>
 	@endforeach
 
-<div class="card">
-<h2 class="card-header">カテゴリー追加ページ</h2>
-<div class="card-body">
-{{ Form::open(['route' => 'categories.store'], array('class' => 'form')) }}
+	<div class="card">
+		<h2 class="card-header">カテゴリー追加ページ</h2>
+		<div class="card-body">
+			{{ Form::open(['route' => 'categories.store'], array('class' => 'form')) }}
 
-	<div class="form-group">
-		<label for="title" class="">カテゴリー名</label>
-		<div class="">
-			{{ Form::text('name', null, array('class' => 'form-control')) }}
+			<div class="form-group">
+				<label for="title" class="">カテゴリー名</label>
+				{{ Form::text('name', null, array('class' => 'form-control')) }}
+			</div>
+
+			<div class="form-group">
+				<button type="submit" class="btn btn-primary">投稿する</button>
+			</div>
+			{{ Form::close() }}
 		</div>
 	</div>
-
-	<div class="form-group">
-		<button type="submit" class="btn btn-primary">投稿する</button>
-	</div>
-{{ Form::close() }}
 </div>
 </div>
 
