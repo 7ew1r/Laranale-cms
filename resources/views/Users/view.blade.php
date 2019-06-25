@@ -10,13 +10,15 @@
         <p>名前: {{ $user->name }}</p>
         <p>メールアドレス: {{ $user->email }}</p>
         <p>作成日時: {{ $user->created_at }}</p>
-        <form action="{{ route('users.destroy',['id' => $user->id]) }}" method="POST">
-          {{ csrf_field() }}
-          {{ method_field('DELETE') }}
-          <button type="submit" class="btn btn-danger btn-delete">
-            <i class="fas fa-trash-alt"></i> ユーザを削除
-          </button>
-        </form>
+        @if (Auth::id() == $user->id)
+          <form action="{{ route('users.destroy',['id' => $user->id]) }}" method="POST">
+            {{ csrf_field() }}
+            {{ method_field('DELETE') }}
+            <button type="submit" class="btn btn-danger btn-delete">
+              <i class="fas fa-trash-alt"></i> ユーザを削除
+            </button>
+          </form>
+        @endif
     </div>
   </div>
 
