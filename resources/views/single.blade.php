@@ -2,15 +2,15 @@
 @section('content')
 
 <div class="col-8 offset-2 bg-light my-5 py-2">
-	<div>
+	<div class="post-header">
 		<span>by {{ link_to("users/{$post->user->id}", $post->user->name) }}</span>
 		<span class="mx-4"><i class="far fa-clock"></i> {{ date("Y年 m月 d日",strtotime($post->created_at)) }}</span>
 		@if (Auth::id() == $post->user_id)
 			<span class="float-right">{{ link_to("posts/{$post->id}/edit","編集する") }}</span>
 		@endif
 	</div>
-	<h2>{{ $post->title }}</h2>
-	<p>カテゴリー：{{ $post->category->name }}</p>
+	<h2 class="post-title">{{ $post->title }}</h2>
+	<p>カテゴリー：{{ link_to( "categories/{$post->category->id}"  , $post->category->name) }}</p>
 	<div class="post-content py-2">
 		@markdown($post->content)
 	</div>
