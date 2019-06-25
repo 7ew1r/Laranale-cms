@@ -22,6 +22,18 @@ body {
     opacity: 1.0;
 }
 
+.post-header {
+    height: 35px;
+}
+
+.post-content h2 {
+    font-size: 28px;
+}
+
+.post-content pre {
+    padding-left: 10px;
+}
+
 footer {
     z-index: 1;
     background-color: #343a40;
