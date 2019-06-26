@@ -42,8 +42,12 @@
 					</div>
 				</div>
 
+				<label for="content" class="">本文</label>
 				<div class="form-group">
-					<label for="content" class="">本文</label>
+					<ul class="nav nav-tabs">
+						<li class="nav-item"><a href="#" class="nav-link active">編集</a></li>
+						<li class="nav-item"><a href="#" class="nav-link">プレビュー</a></li>
+					</ul>
 					<div class="">
 						{{ Form::textarea('content', null, array('class' => 'form-control')) }}
 					</div>
