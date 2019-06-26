@@ -9,7 +9,7 @@
 				<h2 class="h3">{{ link_to("categories/{$category->id}", $category->name, ['class' => 'text-dark']) }}</h2>
 				<hr />
 			@endforeach
-			<h2  class="h3">{{ link_to("categories/create", "＋ カテゴリーを追加する", ['class' => 'text-dark']) }}</h2>
+			<h2 class="h3">{{ link_to("categories/create", "＋ カテゴリーを追加する", ['class' => 'text-dark']) }}</h2>
 		</div>
 	</div>
 {{ $categories->links() }}
