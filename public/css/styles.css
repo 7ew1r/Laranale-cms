@@ -1,6 +1,14 @@
 body {
     background-color: #eeeeee;
 }
+.cat_list {
+    padding-top: 35px;
+}
+
+.cat_list > li {
+    font-size: 1.8em;
+    list-style: none;
+}
 
 .post-content pre {
     color: white;
@@ -42,4 +50,10 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
+}
+
+@media screen and (max-width: 991px) {
+    .none {
+        display: none;
+    }
 }
