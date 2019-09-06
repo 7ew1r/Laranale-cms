@@ -4,8 +4,8 @@
 
 ## 概要
 
-Laravelで構築したCMSアプリケーションです。
-http://laranale.herokuapp.com/
+Laravelで構築したCMSアプリケーションです。  
+~~http://laranale.herokuapp.com/~~
 
 ## 機能一覧
 
