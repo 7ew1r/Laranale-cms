@@ -1,4 +1,4 @@
-# laranale
+# Laranale-cms
 
 [![CircleCI](https://circleci.com/gh/7ew1r/Laranale-cms/tree/master.svg?style=svg)](https://circleci.com/gh/7ew1r/Laranale-cms/tree/master)
 
